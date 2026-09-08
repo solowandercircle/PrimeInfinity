@@ -1,0 +1,37 @@
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>PRIME INFINITY PRIVATE LIMITED</h4>
+                <p>CIN: 70027091PL092714</p>
+                <p>Registered Office: Amritha Castle', #5-9-16, Saifabad, Opp. Secretariat, Hyderabad - 500063</p>
+                <p>Corporate Office: 'Country Club Kool', 6-3-1219, 4th & 5th Floor, Begumpet, Hyderabad - 500016</p>
+            </div>
+            <div class="footer-col">
+                <h4>MEMBERS SUPPORT</h4>
+                <p>Care: +91 8121220086 (Mon-Sat)</p>
+                <p>Email: contact@countryclubmail.com</p>
+                <p>Reservations: +91 9182998904</p>
+                <p>Email: contact@countryclubmail.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>RESOURCES</h4>
+                <p><a href="about.html">About Us</a></p>
+                <p><a href="#">Investors</a></p>
+                <p><a href="locations.html">Locations</a></p>
+                <p><a href="contact.html">Contact Us</a></p>
+                <p><a href="membership.html">Membership</a></p>
+                <p><a href="#">Privacy Policy</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>FOLLOW US</h4>
+                <div class="social-icons">
+                    <a href="#">f</a> <a href="#">i</a> <a href="#">y</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Prime Infinity Private Limited. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locations | Prime Infinity</title>
+    <meta name="description" content="Explore Prime Infinity's exclusive clubs, resorts, and fitness centers across Bangalore, Chennai, Hyderabad, Mumbai, and more.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+
+<script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+
+ <style>
+    .tabs-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .tab-btn {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            margin: 0 5px;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .tab-btn.active {
+            background-color: #202C4B; /* Example active color */
+            color: white;
+            border-color: #202C4B;
+        }
+        .tab-content {
+            display: none; /* Hide all tab content by default */
+        }
+        .tab-content.active {
+            display: block; /* Show active tab content */
+        }
+        .location-card {
+            cursor: pointer; /* Add pointer cursor to indicate it's clickable */
+        }
+
+        /* Lightbox (Full-screen image pop-up) styles */
+        .lightbox {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .lightbox-close:hover,
+        .lightbox-close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        /* Add this CSS to the <style> block in your locations.html file */
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white; /* White color for contrast */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    border: none;
+    cursor: pointer;
+    font-size: 3rem; /* Make the arrow icon much larger */
+    padding: 10px 15px;
+    border-radius: 50%; /* Optional: for a circular button look */
+    z-index: 1001; /* Ensure they are above the image and background */
+    line-height: 1; /* Center the text icon vertically */
+    height: 60px; /* Define size */
+    width: 60px; /* Define size */
+    display: flex; /* Use flexbox to truly center the arrow inside */
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.lightbox-nav:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Darken on hover */
+}
+
+.lightbox-prev {
+    left: 20px; /* Position on the left */
+}
+
+.lightbox-next {
+    right: 20px; /* Position on the right */
+}
+  </style>
+
+
+</head>
+<body>
+
+    
+    <!-- Header  -->
+
+    <header>
+       <div class="custome-subhead-bg">
+        <div class="container subheader-flex">
+          <ul class="nav-menu">
+            <li>
+              <a
+                href="https://facebook.com/your-profile"
+                target="_blank"
+                aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://instagram.com/your-profile"
+                target="_blank"
+                aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://instagram.com/your-profile"
+                target="_blank"
+                aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://youtube.com/your-channel"
+                target="_blank"
+                aria-label="YouTube"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </li>
+          </ul>
+          <div class="nav-right">
+            <a href="#">Pay |</a>
+            <a href="#">Sign In</a>
+          </div>
+        </div>
+    </div>
+
+      <div class="container">
+        
+        <nav class="navbar" style="">
+          <a href="index.html" class="logo"
+            ><img src="assets/images/logo1.png" alt="Prime Infinity Logo"
+          /></a>
+          
+          <ul class="nav-menu custom-navbar-menu" style="display: flex; justify-content: center; align-items: center; gap: 10px; list-style: none; margin: 0; padding: 22px 0;background: linear-gradient(90deg,#eaf8fd 55%, #bee7ed); border-radius: 0 0 40px 40px; margin: 0 auto; width: 75%; margin-top: -20px; box-shadow: 0 2px 10px rgba(30,60,85,0.12);">
+      <li><a href="index.html" class="nav-link" style="color: #234; text-decoration: none; font-weight: 600;">HOME</a></li>
+      <li><a href="about.html" class="nav-link" style="color: #234; text-decoration: none; font-weight: 600;">ABOUT US</a></li>
+      <li><a href="management.html" class="nav-link" style="color: #234; text-decoration: none; font-weight: 600;">MANAGEMENT</a></li>
+      <li><a href="locations.html" class="nav-link active" style="color: #234; text-decoration: none; font-weight: 600;">LOCATIONS</a></li>
+      <li><a href="membership.html" style="color: #234; text-decoration: none; font-weight: 600;">MEMBERSHIP</a></li>
+      <li><a href="contact.html" class="nav-link" style="color: #234; text-decoration: none; font-weight: 600;">CONTACT US</a></li>
+    </ul>
+         
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Header end -->
+    <main>
+        <section class="hero-section" style="background-image: url('assets/images/locations.webp');">
+   
+    <div class="hero-content hero-content-left">
+        <h1>From the Gym to the Globe <br>& Your Goals in Between</h1>
+        <p>Goals Without Boundaries.</p>
+    </div>
+</section>
+
+        <section class="section">
+        <div class="container">
+
+                <div class="tabs-container">
+                    <button class="tab-btn active" data-tab="associated-hotels">Associated Hotels</button>
+                    <button class="tab-btn" data-tab="projects">Projects</button>
+                </div>
+
+            
+                <!-- <h2 class="section-title">Our Locations</h2> -->
+                <div id="associated-hotels" class="tab-content active">
+                <div class="locations-grid">
+                    <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Dubai/5.jpg">
+                            <img src="assets/images/Associate Hotels/Dubai/4.jpg" alt="Dubai">
+                            <div class="location-overlay"><h3>DUBAI: The City of Dreams and Luxury</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Georgia/6.jpg">
+                            <img src="assets/images/Associate Hotels/Georgia/3.jpg" alt="Georgia">
+                            <div class="location-overlay"><h3>GEORGIA: Where Nature, Culture, and Elegance Meet</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Turkey/5.jpg">
+                            <img src="assets/images/Associate Hotels/Turkey/4.jpg" alt="Turkey">
+                            <div class="location-overlay"><h3>TURKEY: Timeless Journey Between East and West</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Jordan/5.jpg">
+                            <img src="assets/images/Associate Hotels/Jordan/4.jpg" alt="Jordan">
+                            <div class="location-overlay"><h3>JORDAN: The Land of Timeless Wonders</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Qatar/5.jpg">
+                            <img src="assets/images/Associate Hotels/Qatar/1.jpg" alt="Qatar">
+                            <div class="location-overlay"><h3>QATAR: Where Tradition Meets Modern Luxury</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Makkah/6.jpg">
+                            <img src="assets/images/Associate Hotels/Makkah/1.jpg" alt="Makka">
+                            <div class="location-overlay"><h3>MAKKA: A Journey of Faith and Devotion</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Switzerland/6.jpg">
+                            <img src="assets/images/Associate Hotels/Switzerland/4.jpg" alt="Switzerland">
+                            <div class="location-overlay"><h3>SWITZERLAND: The Jewel of the Alps</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Singapore/5.jpg">
+                            <img src="assets/images/Associate Hotels/Singapore/1.jpg" alt="Sinagpore">
+                            <div class="location-overlay"><h3>SINAGPORE: The City of the Future</h3></div>
+                        </div>
+                         <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Bangkok/5.jpg">
+                            <img src="assets/images/Associate Hotels/Bangkok/3.jpg" alt="Bangkok">
+                            <div class="location-overlay"><h3>BANGKOK: The City of Angels</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Indonesia/5.jpg">
+                            <img src="assets/images/Associate Hotels/Indonesia/3.jpg" alt="Indonesia">
+                            <div class="location-overlay"><h3>INDONESIA: The Islands of Endless Wonders</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Kashmir/5.jpg">
+                            <img src="assets/images/Associate Hotels/Kashmir/1.jpg" alt="Kashmir">
+                            <div class="location-overlay"><h3>KASHMIR: Paradise on Earth</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Mumbai/5.jpg">
+                            <img src="assets/images/Associate Hotels/Mumbai/4.jpg" alt="Mumbai">
+                            <div class="location-overlay"><h3>MUMBAI: The City of Dreams</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Bangalore/5.jpg">
+                            <img src="assets/images/Associate Hotels/Banglore/4.jpg" alt="Bangalore">
+                            <div class="location-overlay"><h3>BANGALORE: The Garden City of India</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Hyderabad/6.jpg">
+                            <img src="assets/images/Associate Hotels/Hyderabad/4.jpg" alt="Hyderabad">
+                            <div class="location-overlay"><h3>HYDERABAD: The City of Nizams</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Goa/5.jpg">
+                            <img src="assets/images/Associate Hotels/Goa/4.jpg" alt="Goa">
+                            <div class="location-overlay"><h3>GOA: India’s Coastal Paradise</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Agra/6.jpg">
+                            <img src="assets/images/Associate Hotels/Agra/1.jpg" alt="Agra">
+                            <div class="location-overlay"><h3>AGRA: The City of Eternal Love</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Kerala/6.jpg">
+                            <img src="assets/images/Associate Hotels/Kerala/4.jpg" alt="Kerala">
+                            <div class="location-overlay"><h3>KERALA: God’s Own Coastal Paradise</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Shimla/5.jpg">
+                            <img src="assets/images/Associate Hotels/Shimla/2.jpg" alt="Shimla">
+                            <div class="location-overlay"><h3>SHIMLA: The Queen of Hills</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Pune/6.jpg">
+                            <img src="assets/images/Associate Hotels/Pune/1.jpg" alt="Pune">
+                            <div class="location-overlay"><h3>PUNE: The Cultural Capital of Maharashtra</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Mysore/5.jpg">
+                            <img src="assets/images/Associate Hotels/Mysore/2.jpg" alt="Mysore">
+                            <div class="location-overlay"><h3>MYSORE: The Royal City of Palaces</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Mangalore/5.jpg">
+                            <img src="assets/images/Associate Hotels/Mangalore/1.jpg" alt="Manglore">
+                            <div class="location-overlay"><h3>MANGALORE: The Gateway to Coastal Karnataka</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Manali/5.jpg">
+                            <img src="assets/images/Associate Hotels/Manali/2.jpg" alt="Manali">
+                            <div class="location-overlay"><h3>MANALI: The Himalayan Paradise</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Lucknow/6.jpg">
+                            <img src="assets/images/Associate Hotels/Lucknow/4.jpg" alt="Lucknow">
+                            <div class="location-overlay"><h3>LUCKNOW: The City of Nawabs</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Kodaikanal/6.jpg">
+                            <img src="assets/images/Associate Hotels/Kodaikanal/4.jpg" alt="Kodaikanal">
+                            <div class="location-overlay"><h3>KODAIKANAL: The Princess of Hill Stations</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Kolkata/6.jpg">
+                            <img src="assets/images/Associate Hotels/Kolkata/4.jpg" alt="Kolkata">
+                            <div class="location-overlay"><h3>KOLKATA: The City of Joy</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Jaipur/6.jpg">
+                            <img src="assets/images/Associate Hotels/Jaipur/3.jpg" alt="Jaipur">
+                            <div class="location-overlay"><h3>JAIPUR: The Pink City of Royalty</h3></div>
+                        </div>
+                         <div class="location-card" data-lightbox-img="assets/images/Associate Hotels/Delhi/5.jpg">
+                            <img src="assets/images/Associate Hotels/Delhi/4.jpg" alt="Delhi">
+                            <div class="location-overlay"><h3>DELHI: Where Heritage Meets Modern Luxury</h3></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="projects" class="tab-content">
+                    <div class="locations-grid">
+                        <div class="location-card" data-lightbox-img="assets/images/Projects/Country Kuteeram/8.jpg, assets/images/Projects/Country Kuteeram/9.jpg">
+                            <img src="assets/images/Projects/Country Kuteeram/1.jpg" alt="COUNTRY KUTEERAM">
+                            <div class="location-overlay"><h3>COUNTRY KUTEERAM</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Projects/Osadia Garden City/1.jpg, assets/images/Projects/Osadia Garden City/2.jpg">
+                            <img src="assets/images/Projects/Osadia Garden City/investment brochure final 2.jpg" alt="OSADIA GARDEN CITY">
+                            <div class="location-overlay"><h3>OSADIA GARDEN CITY</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Projects/Blue Breeze/1.jpg, assets/images/Projects/Blue Breeze/2.jpg">
+                            <img src="assets/images/Projects/Blue Breeze/investment brochure final 2.jpg" alt="BLUE BREEZE">
+                            <div class="location-overlay"><h3>BLUE BREEZE</h3></div>
+                        </div>
+                        <div class="location-card" data-lightbox-img="assets/images/Projects/Coconut Grove/1.jpg, assets/images/Projects/Coconut Grove/2.jpg">
+                            <img src="assets/images/Projects/Coconut Grove/investment brochure final 2.jpg" alt="COCONUT GROVE">
+                            <div class="location-overlay"><h3>COCONUT GROVE</h3></div>
+                        </div>
+                         <div class="location-card" data-lightbox-img="assets/images/Projects/Fairway/1.jpg, assets/images/Projects/Fairway/2.jpg">
+                            <img src="assets/images/Projects/Fairway/investment brochure final 2.jpg" alt="FAIRWAY">
+                            <div class="location-overlay"><h3>FAIRWAY</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Peacock Feathers/1.jpg, assets/images/Projects/Peacock Feathers/2.jpg">
+                            <img src="assets/images/Projects/Peacock Feathers/investment brochure final 2.jpg" alt="PEACOCK FEATHERS">
+                            <div class="location-overlay"><h3>PEACOCK FEATHERS</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Sagar Sundarvan/1.jpg, assets/images/Projects/Sagar Sundarvan/2.jpg">
+                            <img src="assets/images/Projects/Sagar Sundarvan/investment brochure final 2.jpg" alt="SAGAR SUNDARVAN">
+                            <div class="location-overlay"><h3>SAGAR SUNDARVAN</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Saila Bhoomi/1.jpg, assets/images/Projects/Saila Bhoomi/2.jpg">
+                            <img src="assets/images/Projects/Saila Bhoomi/investment brochure final 2.jpg" alt="SAILA BHOOMI">
+                            <div class="location-overlay"><h3>SAILA BHOOMI</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Saila Bhoomi Imperial/1.jpg, assets/images/Projects/Saila Bhoomi Imperial/2.jpg">
+                            <img src="assets/images/Projects/Saila Bhoomi Imperial/investment brochure final 2.jpg" alt="SAILA BHOOMI IMPERIAL">
+                            <div class="location-overlay"><h3>SAILA BHOOMI IMPERIAL</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Sagar Pushpavan/1.jpg, assets/images/Projects/Sagar Pushpavan/2.jpg">
+                            <img src="assets/images/Projects/Sagar Pushpavan/investment brochure final 2.jpg" alt="SAGAR PUSHPAVAN">
+                            <div class="location-overlay"><h3>SAGAR PUSHPAVAN</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Fariway Extension/1.jpg, assets/images/Projects/Fariway Extension/2.jpg">
+                            <img src="assets/images/Projects/Fariway Extension/investment brochure final 2.jpg" alt="FAIRWAY EXTENSION">
+                            <div class="location-overlay"><h3>FAIRWAY EXTENSION</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Sagar Meadows/1.jpg, assets/images/Projects/Sagar Meadows/2.jpg">
+                            <img src="assets/images/Projects/Sagar Meadows/investment brochure final 2.jpg" alt="SAGAR MEADOWS">
+                            <div class="location-overlay"><h3>SAGAR MEADOWS</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Golf Village/1.jpg, assets/images/Projects/Golf Village/2.jpg">
+                            <img src="assets/images/Projects/Golf Village/investment brochure final 2.jpg" alt="GOLF VILLAGE">
+                            <div class="location-overlay"><h3>GOLF VILLAGE</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Haritahavanam/1.jpg, assets/images/Projects/Haritahavanam/2.jpg">
+                            <img src="assets/images/Projects/Haritahavanam/investment brochure final 2.jpg" alt="HARITHAVANAM">
+                            <div class="location-overlay"><h3>HARITHAVANAM</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Ratna Bhoomi/1.jpg, assets/images/Projects/Ratna Bhoomi/2.jpg">
+                            <img src="assets/images/Projects/Ratna Bhoomi/3.png" alt="RATNA BHOOMI">
+                            <div class="location-overlay"><h3>RATNA BHOOMI</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Ratna Bhoomi New/1.jpg, assets/images/Projects/Ratna Bhoomi New/2.jpg">
+                            <img src="assets/images/Projects/Ratna Bhoomi New/investment brochure final 2.jpg" alt="RATNA BHOOMI NEW">
+                            <div class="location-overlay"><h3>RATNA BHOOMI NEW</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Raj Bhoomi New/1.jpg, assets/images/Projects/Raj Bhoomi New/2.jpg">
+                            <img src="assets/images/Projects/Raj Bhoomi New/investment brochure final 2.jpg" alt="RAJ BHOOMI NEW">
+                            <div class="location-overlay"><h3>RAJ BHOOMI NEW</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Flamingo Nests/1.jpg, assets/images/Projects/Flamingo Nests/2.jpg">
+                            <img src="assets/images/Projects/Flamingo Nests/investment brochure final 2.jpg" alt="FLAMINGO NESTS">
+                            <div class="location-overlay"><h3>FLAMINGO NESTS</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Thirupuram/1.jpg, assets/images/Projects/Thirupuram/2.jpg">
+                            <img src="assets/images/Projects/Thirupuram/investment brochure final 2.jpg" alt="THIRUPURAM">
+                            <div class="location-overlay"><h3>THIRUPURAM</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Vedic Meadows/1.jpg, assets/images/Projects/Vedic Meadows/2.jpg">
+                            <img src="assets/images/Projects/Vedic Meadows/investment brochure final 2.jpg" alt="VEDIC MEADOWS">
+                            <div class="location-overlay"><h3>VEDIC MEADOWS</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Capital Meadows/1.jpg, assets/images/Projects/Capital Meadows/2.jpg">
+                            <img src="assets/images/Projects/Capital Meadows/investment brochure final 2.jpg" alt="CAPITAL MEADOWS">
+                            <div class="location-overlay"><h3>CAPITAL MEADOWS</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Capital Meadows 2/1.jpg, assets/images/Projects/Capital Meadows 2/2.jpg">
+                            <img src="assets/images/Projects/Capital Meadows 2/investment brochure final 2.jpg" alt="CAPITAL MEADOWS 2">
+                            <div class="location-overlay"><h3>CAPITAL MEADOWS 2</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Sarzameen/1.jpg, assets/images/Projects/Sarzameen/2.jpg">
+                            <img src="assets/images/Projects/Sarzameen/investment brochure final 2.jpg" alt="SARZAMEEN">
+                            <div class="location-overlay"><h3>SARZAMEEN</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Pilani Domiciles/1.jpg, assets/images/Projects/Pilani Domiciles/2.jpg">
+                            <img src="assets/images/Projects/Pilani Domiciles/investment brochure final 2.jpg" alt="PILANI DMOCILES">
+                            <div class="location-overlay"><h3>PILANI DMOCILES</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Ambiance Malligai/1.jpg, assets/images/Projects/Ambiance Malligai/2.jpg">
+                            <img src="assets/images/Projects/Ambiance Malligai/investment brochure final 2.jpg" alt="AMBIANCE MALLIGAI">
+                            <div class="location-overlay"><h3>AMBIANCE MALLIGAI</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Madhura Bhoomi/1.jpg, assets/images/Projects/Madhura Bhoomi/2.jpg">
+                            <img src="assets/images/Projects/Madhura Bhoomi/investment brochure final 2.jpg" alt="MADHURA BHOOMI">
+                            <div class="location-overlay"><h3>MADHURA BHOOMI</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Madhura Bhoomi Regal/1.jpg, assets/images/Projects/Madhura Bhoomi Regal/2.jpg">
+                            <img src="assets/images/Projects/Madhura Bhoomi Regal /investment brochure final 2.jpg" alt=">MADHURA BHOOMI REGAL">
+                            <div class="location-overlay"><h3>MADHURA BHOOMI REGAL</h3></div>
+                        </div>
+						<div class="location-card" data-lightbox-img="assets/images/Projects/Thangapuram/1.jpg, assets/images/Projects/Thangapuram/2.jpg">
+                            <img src="assets/images/Projects/Thangapuram/investment brochure final 2.jpg" alt="THANGAPURAM">
+                            <div class="location-overlay"><h3>THANGAPURAM</h3></div>
+                        </div>
+						
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>PRIME INFINITY PRIVATE LIMITED</h4>
+                 
+                <p>Global Headquarters: Office # 104, NTG Building, 3819 King Abdul Aziz Road, Al Wizarat, 8540, Riyadh 104</p>
+            </div>
+            <div class="footer-col">
+                <h4>MEMBERS SUPPORT</h4>
+                <p>Email: customercare@primeinfintyksa.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>RESOURCES</h4>
+                <p><a href="about.html">About Us</a></p>
+                <p><a href="locations.html">Locations</a></p>
+                <p><a href="contact.html">Contact Us</a></p>
+                <p><a href="membership.html">Membership</a></p>
+                <p><a href="#">Privacy Policy</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>FOLLOW US</h4>
+                <div class="social-icons">
+    <a href="https://facebook.com/your-profile" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/your-profile" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://youtube.com/your-channel" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Prime Infinity Private Limited. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // --- TAB FUNCTIONALITY (unchanged) ---
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            button.classList.add('active');
+            const tabId = button.getAttribute('data-tab');
+            const tabEl = document.getElementById(tabId);
+            if (tabEl) tabEl.classList.add('active');
+        });
+    });
+
+    // --- LIGHTBOX FUNCTIONALITY (multi-image support) ---
+    const lightbox = document.getElementById('imageLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const locationCards = document.querySelectorAll('.location-card');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const prevBtn = document.querySelector('.lightbox-prev');
+    const nextBtn = document.querySelector('.lightbox-next');
+
+    let activeImages = []; // array of URLs for current open card
+    let activeIndex = 0;
+
+    function showLightboxWith(images, startIndex = 0) {
+        if (!images || images.length === 0) return;
+        activeImages = images;
+        activeIndex = Math.max(0, Math.min(startIndex, images.length - 1));
+        lightboxImg.src = activeImages[activeIndex];
+        lightbox.style.display = 'flex';
+        lightbox.setAttribute('aria-hidden', 'false');
+
+        // show/hide nav buttons depending on number of images
+        if (activeImages.length > 1) {
+            prevBtn.style.display = 'flex';
+            nextBtn.style.display = 'flex';
+        } else {
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+        }
+    }
+
+    function closeLightbox() {
+        lightbox.style.display = 'none';
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImg.src = '';
+        activeImages = [];
+        activeIndex = 0;
+    }
+
+    function showIndex(i) {
+        if (!activeImages || activeImages.length === 0) return;
+        activeIndex = (i + activeImages.length) % activeImages.length; // wrap
+        lightboxImg.src = activeImages[activeIndex];
+    }
+
+    if (locationCards.length > 0 && lightbox && lightboxImg) {
+        locationCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // read data-lightbox-img (comma-separated) or fallback to contained <img>
+                const raw = card.getAttribute('data-lightbox-img') || '';
+                let images = [];
+
+                if (raw.trim().length) {
+                    images = raw.split(',').map(s => s.trim()).filter(Boolean);
+                }
+
+                if (images.length === 0) {
+                    const imgEl = card.querySelector('img');
+                    if (imgEl && imgEl.src) images = [imgEl.src];
+                }
+
+                if (images.length > 0) {
+                    showLightboxWith(images, 0);
+                }
+            });
+        });
+
+        if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+        if (prevBtn) prevBtn.addEventListener('click', () => showIndex(activeIndex - 1));
+        if (nextBtn) nextBtn.addEventListener('click', () => showIndex(activeIndex + 1));
+
+        // close when clicking outside the image
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox) closeLightbox();
+        });
+
+        // keyboard navigation: Esc to close, arrows to navigate
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.style.display === 'flex') {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') showIndex(activeIndex - 1);
+                if (e.key === 'ArrowRight') showIndex(activeIndex + 1);
+            }
+        });
+    }
+});
+</script>
+
+<!-- Lightbox markup (replace existing one) -->
+<div id="imageLightbox" class="lightbox" aria-hidden="true" role="dialog">
+  <button class="lightbox-nav lightbox-prev" aria-label="Previous image">&lsaquo;</button>
+  <span class="lightbox-close" aria-label="Close">&times;</span>
+  <img id="lightboxImg" class="lightbox-content" src="" alt="Full view">
+  <button class="lightbox-nav lightbox-next" aria-label="Next image">&rsaquo;</button>
+</div>
+
+</body>
+</html>
