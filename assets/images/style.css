@@ -1,0 +1,859 @@
+
+/* --- Google Fonts & Global Styles --- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Proxima+Nova,sans-serif&display=swap');
+
+:root {
+    --gold: #AA7F2C;
+    --dark-blue: #202C4B;
+    --text-light: #f0f0f0;
+    --text-dark: #333;
+    --bg-light: #ffffff;
+    --bg-dark: #0a0a0a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Proxima Nova', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Big Caslon', 'Cormorant Garamond', serif;
+    font-weight: 700;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.custome-subhead-bg{
+    background-color: #202c4b;
+    padding: 5px;
+}
+
+/* --- Header & Navigation --- */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    /* padding: 20px 0; */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.custom-navbar-menu{
+    justify-content: center;
+    width: 100%;
+}
+
+.logo img {
+    height: 88px;
+    padding-top: 15px;
+}
+.custom-checkbox{
+    display: flex;
+
+}
+.custom-input-check{
+    width: auto !important;
+}
+.text-dark{
+    color: #000;
+}
+.custom-margin-checkbox{
+    margin-left: 10px;
+}
+.custom-app-store{
+    display: flex;
+    justify-content: center;
+}
+.custom-play-store{
+    margin-right: 10px;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+}
+
+.nav-menu li {
+    margin: 0 20px;
+}
+
+.nav-menu a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 16px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+    border-bottom-color: var(--gold);
+}
+
+.nav-right a {
+    color: var(--text-light);
+    text-decoration: none;
+    /* margin-left: 20px; */
+    font-size: 16px;
+}
+
+/* Mobile Menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Hero & Slider Section --- */
+.hero-slider, .hero-section {
+    position: relative;
+    height: 75vh; 
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- Homepage Slider Text Position --- */
+.hero-slider-home {
+    /* Override the default flex centering */
+    align-items: flex-start;  /* Align content to the top */
+    justify-content: flex-start; /* Align content to the left */
+}
+
+.hero-slider-home .hero-content {
+    /* Position the text box */
+    padding-top: 20vh;    /* Push down from the top (20% of viewport height) */
+    padding-left: 10%;   /* Push in from the left */
+    text-align: left;
+    max-width: 700px;
+}
+
+.hero-slider-home .hero-content h1 {
+    /* Use the font styles from your design */
+    font-family: 'Playfair Display', serif;
+    font-size: 45pt; /* This is the 'Big Caslon - 45pt' size you requested */
+    line-height: 1.3;
+}
+
+.slide, .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    margin-left: 90px;
+}
+
+.hero-content h1 {
+    font-size: 45pt;
+    margin-bottom: 20px;
+    max-width: 600px;
+}
+
+.hero-content p {
+    font-size: 22pt;
+    font-family: 'Proxima Nova', sans-serif;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* --- General Section Styling --- */
+.section {
+    padding: 35px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 36pt;
+    color: var(--dark-blue);
+    margin-bottom: 50px;
+}
+
+/* --- Home Page Specifics --- */
+.services-section {
+    background-color: #f7f3e8; /* Light tan background */
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: center;
+}
+
+.service-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 24pt;
+    color: var(--dark-blue);
+    letter-spacing: 2px;
+}
+
+.membership-intro {
+    background-color: #0E1628;
+    color: white;
+    text-align: center;
+}
+
+.membership-intro h2 {
+     color: white;
+}
+.membership-intro p {
+    max-width: 800px;
+    margin: 20px auto 0;
+    font-size: 18pt;
+    line-height: 1.6;
+}
+
+.why-join-us {
+    background-color: #fdfcfa;
+}
+.join-us-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.join-us-form, .join-us-image {
+    flex: 1;
+}
+
+.join-us-image img {
+    width: 100%;
+    max-width: 450px;
+    display: block;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.form-group button {
+    background-color: var(--gold);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+}
+.terms {
+    font-size: 14px;
+}
+
+.app-download {
+    text-align: center;
+}
+
+.app-download p {
+    margin-bottom: 30px;
+    font-size: 18pt;
+}
+
+.app-stores img {
+    height: 50px;
+    margin: 0 10px;
+}
+
+/* --- Footer --- */
+
+/* --- Footer: slightly larger text for readability --- */
+/* Add/replace this near your existing footer styles */
+
+footer {
+    font-size: 15px; /* increased from 14px to 15px */
+    line-height: 1.6;
+}
+
+/* Ensure paragraph and link text follows the new size */
+.footer-col p,
+.footer-col a,
+.footer-bottom p {
+    font-size: 15px;
+    color: #a0a0a0;
+}
+
+/* Keep headings slightly larger for contrast (unchanged if already present) */
+.footer-col h4 {
+    font-size: 16px;
+}
+
+/* Small-screen tweak: keep footer readable but avoid too-large blocks */
+@media (max-width: 480px) {
+    footer {
+        font-size: 14px; /* slightly reduce on very small screens */
+    }
+    .footer-col h4 {
+        font-size: 15px;
+    }
+}
+
+
+footer {
+    background-color: #0E0F11;
+    color: #a0a0a0;
+    padding: 60px 0 20px;
+    font-size: 14px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-col h4 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-family: 'Proxima Nova', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-col p, .footer-col a {
+    color: #a0a0a0;
+    text-decoration: none;
+    line-height: 1.8;
+}
+
+.footer-col a:hover {
+    color: var(--gold);
+}
+
+.social-icons a {
+    color: #a0a0a0; /* Same as your footer text color */
+    margin-right: 15px;
+    font-size: 20px;
+    text-decoration: none; /* Removes underline */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.social-icons a:hover {
+    color: var(--gold); /* Changes color to your brand's gold on hover */
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+/* --- About Us Page --- */
+.about-section {
+    padding: 80px 0;
+}
+.about-content {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    margin-bottom: 80px;
+}
+.about-text, .about-image {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-size: 36pt;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+.about-text p {
+    font-size: 18pt;
+    line-height: 1.5;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+}
+/* Reverse layout for mission/vision */
+.about-content.reverse {
+    flex-direction: row-reverse;
+}
+
+/* --- Management Page --- */
+.ceo-section {
+    display: flex;
+    background-color: #0E1628;
+    color: white;
+}
+.ceo-image {
+    flex: 1;
+}
+.ceo-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.ceo-text {
+    flex: 1;
+    padding: 80px;
+}
+.ceo-text h2 {
+    font-size: 36pt;
+    color: white;
+}
+.ceo-text h3 {
+    font-size: 22pt;
+    color: var(--gold);
+    margin-bottom: 30px;
+}
+.ceo-text p {
+    font-size: 16pt;
+    line-height: 1.8;
+}
+
+/* --- Locations Page --- */
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.location-card {
+    position: relative;
+    overflow: hidden;
+}
+.location-card img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: transform 0.3s;
+}
+.location-card:hover img {
+    transform: scale(1.05);
+}
+.location-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 20px;
+    color: white;
+}
+.location-overlay h3 {
+    font-family: 'Proxima Nova', sans-serif;
+}
+
+/* --- Membership Page --- */
+.why-member-section {
+    padding: 80px 0;
+}
+.member-feature {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 60px;
+}
+.member-feature.reverse {
+    flex-direction: row-reverse;
+}
+.member-text, .member-image {
+    flex: 1;
+}
+.member-image {
+    background-color: #0E1628;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.member-image img {
+    max-width: 100%;
+}
+.member-text {
+    border: 1px solid var(--gold);
+    padding: 40px;
+}
+.member-text h3 {
+    color: var(--gold);
+    font-size: 24pt;
+    margin-bottom: 20px;
+}
+.member-text p {
+    font-size: 16pt;
+    line-height: 1.7;
+}
+
+/* --- Contact Page --- */
+.contact-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+.contact-card {
+    border: 1px solid #ddd;
+    padding: 30px;
+}
+.contact-card h3 {
+    font-size: 20pt;
+    color: var(--dark-blue);
+    margin-bottom: 15px;
+}
+.contact-card p {
+    line-height: 1.7;
+}
+.contact-form-section {
+    background-color: #f7f3e8;
+}
+
+/* --- Location Page Hero Specifics --- */
+.hero-content-left {
+    text-align: left;
+    margin-right: auto; /* Pushes it to the left */
+    margin-left: 10%; /* Gives it space from the edge */
+    max-width: 700px;
+}
+
+.hero-content-left h1 {
+    margin-bottom: 25px;
+}
+
+.hero-content-left p {
+    font-family: 'Proxima Nova', sans-serif;
+    font-size: 22pt;
+    position: relative; /* For the underline */
+    padding-top: 20px; /* Space for the underline */
+    margin-top: 10px;
+}
+
+/* Create the gold underline */
+.hero-content-left p::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px; /* Length of the line */
+    height: 4px;  /* Thickness of the line */
+    background-color: var(--gold); /* Use the gold color */
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 80px;
+        flex-direction: column;
+        background-color: var(--dark-blue);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+    .nav-menu.active {
+        left: 0;
+    }
+    .nav-menu li {
+        margin: 15px 0;
+    }
+    .hamburger {
+        display: block;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .services-grid, .locations-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .join-us-content, .about-content, .about-content.reverse, .member-feature, .member-feature.reverse {
+        flex-direction: column;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .ceo-section {
+        flex-direction: column;
+    }
+    .ceo-text {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* FIX: Reduce hero height on mobile */
+    .hero-slider, .hero-section {
+        height: 60vh; /* Was 100vh */
+        min-height: 400px; 
+    }
+
+    .hero-content h1 {
+        font-size: 30pt; /* Was 35pt */
+    }
+
+    .hero-content p {
+        font-size: 16pt; /* Was 18pt */
+    }
+
+    .services-grid, .locations-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Inside @media (max-width: 768px) { ... } */
+    
+    .hero-slider-home .hero-content {
+    padding-top: 15vh;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.hero-slider-home .hero-content h1 {
+    font-size: 30pt; /* Make font smaller for mobile */
+}
+
+    .hero-content-left {
+        margin-left: 5%; /* Reduce margin on mobile */
+        margin-right: 5%;
+    }
+            
+    .hero-content-left p::before {
+        width: 100px; /* Shorten the line on mobile */
+    }
+}
+
+/* --- Contact Page Form Layout --- */
+.contact-form-layout {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.form-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Responsive adjustment for the contact form */
+@media (max-width: 768px) {
+    .contact-form-layout {
+        flex-direction: column;
+    }
+}
+
+/* --- Management Page --- */
+.ceo-section {
+    display: flex;
+    background-color: #0E1628;
+    color: white;
+}
+.ceo-image {
+    flex: 1;
+}
+.ceo-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This is the key property that contains the image */
+}
+.ceo-text {
+    flex: 1;
+    padding: 80px;
+}
+.ceo-text h2 {
+    font-size: 36pt;
+    color: white;
+}
+.ceo-text h3 {
+    font-size: 22pt;
+    color: var(--gold);
+    margin-bottom: 30px;
+}
+.ceo-text p {
+    font-size: 16pt;
+    line-height: 1.8;
+}
+
+/* --- This part handles the mobile view --- */
+@media (max-width: 992px) {
+    .ceo-section {
+        flex-direction: column; /* Stacks the image on top of the text */
+    }
+    .ceo-text {
+        padding: 40px; /* Reduces padding for smaller screens */
+    }
+}
+/* Header & Navigation */
+.subheader-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Google fonts variant: Poppins (body) + Cormorant Garamond (heading) */
+:root{
+  --font-body: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-heading: "Cormorant Garamond", serif;
+  --size-proxima-22: 29.333px;
+  --size-proxima-18: 24px;
+  --size-big-caslon-45: 60px;
+}
+html, body { font-family: var(--font-body); }
+h1, .heading-big { font-family: var(--font-heading); font-size: var(--size-big-caslon-45); }
+p, .text-body { font-size: var(--size-proxima-18); }
+.text-22 { font-size: var(--size-proxima-22); }
+
+
+/* Mobile full-screen centered overlay menu */
+@media (max-width: 900px) {
+  /* Hide the top-level social nav default behavior unaffected */
+  .custome-subhead-bg { position: relative; z-index: 1100; }
+
+  /* Ensure the main nav is hidden by default on small screens */
+  .navbar .nav-menu {
+    display: none;
+  }
+
+  /* When active, show as full-screen overlay */
+  .navbar .nav-menu.active {
+    display: flex !important;              /* ensure visibility even if inline styles exist */
+    position: fixed;
+    inset: 0;                               /* top:0; right:0; bottom:0; left:0; */
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(18,23,40,0.98), rgba(18,23,40,0.99));
+    z-index: 1200;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    padding: 40px 20px;
+    overflow-y: auto;
+  }
+
+  /* Style the links inside overlay */
+  .navbar .nav-menu.active li {
+    margin: 0;
+  }
+  .navbar .nav-menu.active a {
+    display: block;
+    font-size: 20px;             /* touch friendly */
+    padding: 14px 24px;
+    color: #eaf8fd;
+    text-decoration: none;
+    border-bottom: none;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+  }
+
+  /* Make close state visible via hamburger; keep hamburger on top */
+  .hamburger { position: relative; z-index: 1250; }
+
+  /* Optional: make the logo smaller on mobile while overlay open */
+  .navbar .logo img { height: 64px; }
+
+  /* If you want the social bar to remain visible above overlay, ensure z-index ordering is correct */
+  .custome-subhead-bg { z-index: 1300; } /* increase if you want it above overlay */
+}
+
+/* Reduce gap between top subheader and main navbar */
+.custome-subhead-bg {
+  padding: 4px 0;               /* smaller top bar height */
+}
+
+/* Pull the navbar up slightly to sit closer to the subheader */
+.navbar {
+  margin-top: 2px;             /* small negative value to reduce the gap */
+}
+
+/* Reduce logo vertical padding/size so header is tighter */
+.logo img {
+  height: 72px;                 /* slightly smaller than 88px */
+  padding-top: 8px;             /* less top padding */
+  display: block;
+}
+
+/* Inline styles on .custom-navbar-menu can conflict — override safely for desktop */
+.custom-navbar-menu {
+  margin-top: -12px !important; /* preserves intended overlap but controlled */
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 900px) {
+  .navbar {
+    margin-top: 0;              /* don't overlap on small screens */
+  }
+  .custom-navbar-menu {
+    margin-top: 0 !important;   /* ensure mobile menu sits normally */
+  }
+  .logo img {
+    height: 56px;               /* smaller logo on mobile */
+    padding-top: 6px;
+  }
+}
